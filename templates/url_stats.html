@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Statistikasi</title>
+</head>
+<body>
+    <h1>URL Statistikasi</h1>
+    <p>Asl URL: <a href="{{ original_url }}">{{ original_url }}</a></p>
+    <p>Qisqartirilgan URL: {{ short_code }}</p>
+    <p>Tashriflar soni: {{ visit_count }}</p>
+
+    <h2>Kirishlar:</h2>
+    <table>
+        <tr>
+            <th>IP-manzil</th>
+            <th>Kirish vaqti</th>
+        </tr>
+        {% for visit in visits %}
+        <tr>
+            <td>{{ visit.ip_address }}</td>
+            <td>{{ visit.timestamp }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">Hozircha kirishlar mavjud emas.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

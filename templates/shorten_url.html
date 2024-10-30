@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL qisqartirish</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Qisqartirish</button>
+    </form>
+
+    {% if short_url %}
+        <p>Qisqartirilgan URL: <a href="{{ short_url }}">{{ short_url }}</a></p>
+    {% endif %}
+</body>
+</html>
